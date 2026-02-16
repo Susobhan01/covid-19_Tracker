@@ -1,0 +1,88 @@
+.table {
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: 400px;
+    color: #2d3748;
+    background-color: transparent;
+}
+
+@media (max-width: 600px) {
+    .table {
+        height: 300px;
+    }
+}
+
+.table::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.table::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.table::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+.table tr {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.table tr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.table tr:hover {
+    transform: translateX(4px);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.table tr:hover::before {
+    opacity: 1;
+}
+
+.table td {
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+.table tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.table tr[data-selected='true'] {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)) !important;
+    border: 2px solid #667eea;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+    transform: translateX(4px);
+}
+
+.table tr[data-selected='true']::before {
+    opacity: 1;
+    width: 6px;
+}

@@ -1,0 +1,95 @@
+.infoBox {
+    flex: 1;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.infoBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.infoBox:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.infoBox:hover::before {
+    opacity: 1;
+}
+
+.infoBox:not(:last-child) {
+    margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+    .infoBox:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+}
+
+.infoBox--selected {
+    border-top: 3px solid #7dd71d;
+    border-radius: 16px;
+    background: rgba(125, 215, 29, 0.05);
+    box-shadow:
+        0 12px 30px rgba(125, 215, 29, 0.25),
+        0 0 0 1px rgba(125, 215, 29, 0.2) inset;
+}
+
+.infoBox--red.infoBox--selected {
+    border-top-color: #cc1034;
+    background: rgba(204, 16, 52, 0.05);
+    box-shadow:
+        0 12px 30px rgba(204, 16, 52, 0.25),
+        0 0 0 1px rgba(204, 16, 52, 0.2) inset;
+}
+
+.infoBox__cases {
+    font-weight: 700;
+    font-size: 2.8rem;
+    padding: 0.5rem 0;
+    background: linear-gradient(135deg, #cc1034 0%, #e91e63 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 600px) {
+    .infoBox__cases {
+        font-size: 2rem;
+    }
+}
+
+.infoBox__total {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-top: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.infoBox__cases--green {
+    background: linear-gradient(135deg, #7dd71d 0%, #4ade80 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.infoBox--red {
+    border-color: #cc1034;
+}
