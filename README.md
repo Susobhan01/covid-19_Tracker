@@ -1,4 +1,5 @@
-# React + Vite
+# Covid-19 Tracker
+https://susobhan01.github.io/covid-19_Tracker/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
