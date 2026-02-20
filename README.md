@@ -16,7 +16,7 @@ This project is a **COVID-19 Tracker** built using **React** and **Vite**.
 It displays key statistics about the pandemic and provides a fast, responsive interface for viewing data.
 
 Live demo:  
-🔗 https://susobhan01.github.io/covid-19_Tracker/ :contentReference[oaicite:1]{index=1}
+🔗 https://susobhan01.github.io/covid-19_Tracker/ 
 
 ---
 
