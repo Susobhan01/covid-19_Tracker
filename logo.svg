@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a0800"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="200" fill="url(#bgGrad)" rx="20"/>
+
+  <!-- Biohazard symbol centered at 100,100 -->
+  <g transform="translate(100,100)" filter="url(#glow)">
+
+    <!-- Outer ring (top lobe) -->
+    <path d="M0,-60 A32,32,0,1,1,-0.01,-60 Z" fill="none" stroke="#FFB800" stroke-width="18" />
+    <!-- Outer ring (bottom-right lobe) -->
+    <path d="M0,-60 A32,32,0,1,1,-0.01,-60 Z" fill="none" stroke="#FFB800" stroke-width="18"
+          transform="rotate(120)"/>
+    <!-- Outer ring (bottom-left lobe) -->
+    <path d="M0,-60 A32,32,0,1,1,-0.01,-60 Z" fill="none" stroke="#FFB800" stroke-width="18"
+          transform="rotate(240)"/>
+
+    <!-- Cover the inner parts of the arcs with background color to create the cuts -->
+    <!-- Gap between top and bottom-right arcs -->
+    <rect x="-10" y="-68" width="20" height="20" fill="#0d0400" transform="rotate(0)"/>
+    <rect x="-10" y="-68" width="20" height="20" fill="#0d0400" transform="rotate(120)"/>
+    <rect x="-10" y="-68" width="20" height="20" fill="#0d0400" transform="rotate(240)"/>
+
+    <!-- Inner arcs (connecting tails) -->
+    <path d="M0,-28 A28,28,0,1,0,24.25,14 L17,9.8 A20,20,0,0,1,0,-20 Z"
+          fill="#FFB800" transform="rotate(0)"/>
+    <path d="M0,-28 A28,28,0,1,0,24.25,14 L17,9.8 A20,20,0,0,1,0,-20 Z"
+          fill="#FFB800" transform="rotate(120)"/>
+    <path d="M0,-28 A28,28,0,1,0,24.25,14 L17,9.8 A20,20,0,0,1,0,-20 Z"
+          fill="#FFB800" transform="rotate(240)"/>
+
+    <!-- Mask center -->
+    <circle cx="0" cy="0" r="15" fill="#0d0400"/>
+
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="7" fill="#FFB800"/>
+    <circle cx="0" cy="0" r="3" fill="#0d0400"/>
+  </g>
+</svg>
